@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import Link from "next/link";
+import Image from "next/image";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import { MdOutlineThermostat } from "react-icons/md";
 import { FaBolt, FaOilCan, FaBatteryFull } from "react-icons/fa";
@@ -78,9 +79,11 @@ export default function HomePage() {
               data-aos-delay="0"
             >
               <div className="aspect-[4/3] overflow-hidden">
-                <img
+                <Image
                   src="/infaredthermography.webp"
                   alt="Infrared Thermography"
+                  width={400}
+                  height={300}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
@@ -104,9 +107,11 @@ export default function HomePage() {
               data-aos-delay="100"
             >
               <div className="aspect-[4/3] overflow-hidden">
-                <img
+                <Image
                   src="/powerqualityanalysis.webp"
                   alt="Power Quality Analysis"
+                  width={400}
+                  height={300}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
@@ -130,9 +135,11 @@ export default function HomePage() {
               data-aos-delay="200"
             >
               <div className="aspect-[4/3] overflow-hidden">
-                <img
+                <Image
                   src="/vibrationalanalysis.webp"
                   alt="Vibration Analysis"
+                  width={400}
+                  height={300}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
@@ -156,9 +163,11 @@ export default function HomePage() {
               data-aos-delay="300"
             >
               <div className="aspect-[4/3] overflow-hidden">
-                <img
+                <Image
                   src="/Oil Condition Monitoring.webp"
                   alt="Oil Condition Monitoring"
+                  width={400}
+                  height={300}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
@@ -182,9 +191,11 @@ export default function HomePage() {
               data-aos-delay="400"
             >
               <div className="aspect-[4/3] overflow-hidden">
-                <img
+                <Image
                   src="/Battery Impedance Inspection.webp"
                   alt="Battery Testing"
+                  width={400}
+                  height={300}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
@@ -208,9 +219,11 @@ export default function HomePage() {
               data-aos-delay="500"
             >
               <div className="aspect-[4/3] overflow-hidden">
-                <img
+                <Image
                   src="/Industrial Acoustic Imaging.webp"
                   alt="Acoustic Imaging"
+                  width={400}
+                  height={300}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>

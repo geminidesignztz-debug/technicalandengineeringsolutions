@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function ServiceSlideshow({ services }) {
@@ -72,11 +73,16 @@ export default function ServiceSlideshow({ services }) {
         >
           <div className="relative h-full w-full">
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60" />
-            <img
-              src={services[currentSlide].image}
-              alt={services[currentSlide].title}
-              className="h-full w-full object-cover"
-            />
+            <div className="relative h-full w-full">
+              <Image
+                src={services[currentSlide].image}
+                alt={services[currentSlide].title}
+                fill
+                className="object-cover"
+                priority
+                sizes="100vw"
+              />
+            </div>
             <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
               <h3 className="text-3xl font-bold mb-4">{services[currentSlide].title}</h3>
               <p className="text-lg max-w-3xl">{services[currentSlide].description}</p>

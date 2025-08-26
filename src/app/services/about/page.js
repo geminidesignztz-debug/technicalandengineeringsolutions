@@ -36,14 +36,14 @@ export default function AboutPage() {
                 <p className="text-accent mb-2">Chief Executive Officer</p>
                 <p className="text-gray-600">
                   With over 20 years of experience in industrial engineering,
-                  John leads our company's strategic direction and growth.
+                  John leads our company&apos;s strategic direction and growth.
                 </p>
               </div>
               <div className="bg-muted p-6 rounded-lg">
                 <h3 className="text-xl font-bold mb-2">Sarah Johnson</h3>
                 <p className="text-accent mb-2">Technical Director</p>
                 <p className="text-gray-600">
-                  Sarah brings 15 years of expertise in power systems and
+                  Sarah brings fifteen years of expertise in power systems and
                   electrical engineering to guide our technical operations.
                 </p>
               </div>

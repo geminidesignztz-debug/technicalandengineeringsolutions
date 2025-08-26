@@ -14,7 +14,7 @@ export default function ServiceDetailPage({ params }) {
         <Container>
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-3xl font-bold text-gray-900">Service not found</h1>
-            <p className="mt-4 text-lg text-gray-600">The service you're looking for doesn't exist.</p>
+            <p className="mt-4 text-lg text-gray-600">The service you&apos;re looking for doesn&apos;t exist.</p>
             <Link 
               href="/services" 
               className="mt-8 inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#2B3990] hover:bg-[#232D73] transition-colors"
