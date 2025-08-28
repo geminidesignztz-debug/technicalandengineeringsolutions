@@ -1,5 +1,6 @@
 import Container from "@/components/Container";
 import Image from "next/image";
+import { BuildingOffice2Icon, ChartBarIcon, CubeTransparentIcon, LightBulbIcon } from '@heroicons/react/24/outline';
 
 const featuredProjects = [
   {
@@ -56,61 +57,72 @@ const caseStudies = [
 export default function ProjectsPage() {
   return (
     <>
+      {/* Hero Section */}
+      <section className="relative min-h-[60vh] flex items-center">
+        <div className="absolute inset-0">
+          <Image
+            src="/homepage3.webp"
+            alt="Projects & Experience"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+        <Container className="relative z-10 text-center text-white py-20">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up" data-aos-delay="100">
+            Projects & Experience
+          </h1>
+          <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8" data-aos="fade-up" data-aos-delay="200">
+            Proven track record of delivering exceptional results for leading organizations across various industries
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto mt-12" data-aos="fade-up" data-aos-delay="300">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+              <div className="text-[#2B3990] dark:text-white text-4xl font-bold mb-2">150+</div>
+              <div className="text-gray-600 dark:text-white/80">Projects Completed</div>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+              </div>
+              <div className="text-[#2B3990] dark:text-white text-4xl font-bold mb-2">75+</div>
+              <div className="text-gray-600 dark:text-white/80">Satisfied Clients</div>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div className="text-[#2B3990] dark:text-white text-4xl font-bold mb-2">$15M+</div>
+              <div className="text-gray-600 dark:text-white/80">Cost Savings Generated</div>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <div className="text-[#2B3990] dark:text-white text-4xl font-bold mb-2">500+</div>
+              <div className="text-gray-600 dark:text-white/80">Equipment Failures Prevented</div>
+            </div>
+          </div>
+        </Container>
+      </section>    
+
+      {/* Featured Projects Section */}
       <section className="bg-white py-20">
         <Container>
-          <div className="space-y-16">
-            {/* Projects & Experience Header */}
-            <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-[#2B3990] mb-6">Projects & Experience</h1>
-              <p className="text-gray-600 max-w-3xl mx-auto">
-                Proven track record of delivering exceptional results for leading organizations across various industries
-              </p>
-            </div>
-
-            {/* Stats Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-              <div className="group" data-aos="fade-up" data-aos-delay="0">
-                <div className="flex flex-col items-center space-y-2">
-                  <div className="w-16 h-16 bg-[#2B3990]/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <Image src="/file.svg" alt="Projects" width={32} height={32} className="opacity-80" />
-                  </div>
-                  <div className="text-3xl font-bold text-[#2B3990]">150+</div>
-                  <div className="text-sm text-gray-600 text-center">Projects Completed</div>
-                </div>
-              </div>
-              <div className="group" data-aos="fade-up" data-aos-delay="100">
-                <div className="flex flex-col items-center space-y-2">
-                  <div className="w-16 h-16 bg-[#2B3990]/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <Image src="/globe.svg" alt="Clients" width={32} height={32} className="opacity-80" />
-                  </div>
-                  <div className="text-3xl font-bold text-[#2B3990]">75+</div>
-                  <div className="text-sm text-gray-600 text-center">Satisfied Clients</div>
-                </div>
-              </div>
-              <div className="group" data-aos="fade-up" data-aos-delay="200">
-                <div className="flex flex-col items-center space-y-2">
-                  <div className="w-16 h-16 bg-[#2B3990]/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <Image src="/window.svg" alt="Savings" width={32} height={32} className="opacity-80" />
-                  </div>
-                  <div className="text-3xl font-bold text-[#2B3990]">$15M+</div>
-                  <div className="text-sm text-gray-600 text-center">Cost Savings Generated</div>
-                </div>
-              </div>
-              <div className="group" data-aos="fade-up" data-aos-delay="300">
-                <div className="flex flex-col items-center space-y-2">
-                  <div className="w-16 h-16 bg-[#2B3990]/10 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <Image src="/window.svg" alt="Failures" width={32} height={32} className="opacity-80" />
-                  </div>
-                  <div className="text-3xl font-bold text-[#2B3990]">500+</div>
-                  <div className="text-sm text-gray-600 text-center">Equipment Failures Prevented</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Featured Projects */}
-            <div className="space-y-8">
-              <h2 className="text-3xl font-bold text-center text-gray-900">Featured Projects</h2>
-              <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-8">
+            <h2 className="text-3xl font-bold text-center text-gray-900">Featured Projects</h2>
+            <div className="grid md:grid-cols-2 gap-8">
                 {featuredProjects.map((project, index) => (
                   <div
                     key={project.title}
@@ -174,7 +186,6 @@ export default function ProjectsPage() {
                   </div>
                 ))}
               </div>
-            </div>
           </div>
         </Container>
       </section>

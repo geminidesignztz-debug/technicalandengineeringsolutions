@@ -25,16 +25,10 @@ export default function HomePage() {
         <Slideshow />
         <div className="absolute inset-0 flex items-center justify-center">
           <Container className="text-center text-white">
-            <div className="bg-gray-600/50 inline-block px-6 py-2 rounded-full mb-4">
-              Leading Engineering Solutions in Tanzania
-            </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               Engineering Precision,<br />
               Monitoring with Insight.
             </h1>
-            <p className="text-2xl mb-8 text-[#FF5733]">
-              Minimizing Downtime, Maximizing Uptime
-            </p>
             <p className="text-xl mb-8 max-w-3xl mx-auto">
               We deliver innovative solutions that ensure peak performance and maximum reliability for your critical assets.
             </p>
@@ -44,12 +38,6 @@ export default function HomePage() {
                 className="inline-flex items-center px-8 py-4 bg-[#FF5733] text-white rounded-lg text-lg font-medium hover:bg-[#FF5733]/90 transition-colors"
               >
                 Explore Our Services →
-              </Link>
-              <Link 
-                href="/demo" 
-                className="inline-flex items-center px-8 py-4 bg-gray-600/50 text-white rounded-lg text-lg font-medium hover:bg-gray-600/60 transition-colors"
-              >
-                <span className="mr-2">▶</span> Watch Demo
               </Link>
             </div>
           </Container>

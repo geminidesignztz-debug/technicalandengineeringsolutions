@@ -7,11 +7,10 @@ export default function Slideshow() {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const slides = [
-    '/homepage1.webp',
-    '/homepage2.webp',
+    '/hp1.webp',
+    '/hp2.webp',
+    '/hp3.webp',
     '/homepage3.webp',
-    '/homepage4.webp',
-    '/homepage5.webp',
     '/homepage6.webp',
     '/homepage7.webp'
   ];

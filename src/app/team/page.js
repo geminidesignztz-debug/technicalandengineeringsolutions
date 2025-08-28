@@ -3,6 +3,14 @@
 import Container from "@/components/Container";
 import Image from "next/image";
 import { useState } from "react";
+import { UserGroupIcon, BriefcaseIcon, AcademicCapIcon, StarIcon } from '@heroicons/react/24/outline';
+
+const stats = [
+  { number: "25+", label: "Team Members", icon: UserGroupIcon },
+  { number: "15+", label: "Certified Engineers", icon: AcademicCapIcon },
+  { number: "12+", label: "Years Combined", icon: StarIcon },
+  { number: "500+", label: "Projects Completed", icon: BriefcaseIcon },
+];
 
 const teamMembers = [
   {
@@ -74,20 +82,76 @@ export default function TeamPage() {
   const [hoveredMember, setHoveredMember] = useState(null);
 
   return (
-    <div className="bg-gradient-to-b from-white to-gray-50">
+    <>
       {/* Hero Section */}
-      <section className="py-20">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-[#2B3990] mb-6" data-aos="fade-up">
-              Our Expert Team
-            </h1>
-            <p className="text-gray-600" data-aos="fade-up" data-aos-delay="100">
-              Meet the experienced professionals who deliver world-class engineering diagnostic services
-            </p>
-          </div>
+      <section className="relative min-h-[80vh] flex items-center">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/homepage4.webp"
+            alt="Our Team"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50" />
+        </div>
 
-          {/* Team Grid */}
+        {/* Content */}
+        <Container className="relative z-10 text-white py-20">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Badge */}
+            <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-6 py-2 rounded-full mb-6" data-aos="fade-down">
+              <UserGroupIcon className="w-5 h-5 mr-2 text-[#FF5733]" />
+              <span>Meet Our Team</span>
+            </div>
+
+            {/* Main Title */}
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300" data-aos="fade-up">
+              Expertise That Drives Innovation
+            </h1>
+
+            {/* Description */}
+            <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+              Our diverse team of engineers, technicians, and specialists brings together decades of experience in engineering diagnostics and industrial solutions.
+            </p>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
+              {stats.map((stat, index) => (
+                <div 
+                  key={stat.label}
+                  className="p-4 rounded-xl bg-white/10 backdrop-blur-sm transform hover:scale-105 transition-all duration-300"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
+                  <div className="flex items-center justify-center mb-2">
+                    <stat.icon className="w-6 h-6 text-[#FF5733]" />
+                  </div>
+                  <div className="text-3xl font-bold mb-1">{stat.number}</div>
+                  <div className="text-sm text-gray-300">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Team Content Section */}
+      <div className="bg-gradient-to-b from-white to-gray-50">
+        <section className="py-20">
+          <Container>
+            {/* Section Title */}
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold text-[#2B3990] mb-6" data-aos="fade-up">
+                Meet the Experts
+              </h2>
+              <p className="text-gray-600" data-aos="fade-up" data-aos-delay="100">
+                Our team of dedicated professionals brings together expertise in engineering diagnostics, maintenance, and industrial solutions.
+              </p>
+            </div>
+
+            {/* Team Grid */}
           <div className="grid md:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (
               <div
@@ -172,6 +236,7 @@ export default function TeamPage() {
           </div>
         </Container>
       </section>
-    </div>
+      </div>
+    </>
   );
 }

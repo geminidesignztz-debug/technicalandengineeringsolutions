@@ -1,5 +1,63 @@
 import Container from "@/components/Container";
 import Image from "next/image";
+import Link from "next/link";
+
+const certifications = [
+  {
+    title: "Business Registration Certificate",
+    type: "Business License",
+    status: "Valid",
+    icon: "document",
+    regNumber: "REG-235-TR-2017/4",
+    issueDate: "March 15, 2018",
+    description: "Officially registered with the Business Registration and Licensing Agency (BRELA)"
+  },
+  {
+    title: "Tax Identification Number (TIN)",
+    type: "Tax Registration",
+    status: "Active",
+    icon: "document",
+    regNumber: "123-456-789",
+    issueDate: "January 10, 2018",
+    description: "Official tax registration and compliance certification"
+  },
+  {
+    title: "Value Added Tax (VAT) Certificate",
+    type: "Tax Registration",
+    status: "Active",
+    icon: "document",
+    regNumber: "VAT-789-123",
+    issueDate: "February 5, 2018",
+    description: "Value Added Tax registration and compliance certification"
+  },
+  {
+    title: "OSHA Compliance Certificate",
+    type: "Safety Compliance",
+    status: "Valid",
+    icon: "document",
+    regNumber: "OSHA-2023-456",
+    issueDate: "April 20, 2023",
+    description: "Occupational Safety and Health Administration compliance certification"
+  },
+  {
+    title: "EWURA License",
+    type: "Industry License",
+    status: "Valid",
+    icon: "document",
+    regNumber: "EWURA-2023-789",
+    issueDate: "May 15, 2023",
+    description: "Energy and Water Utilities Regulatory Authority operational license"
+  },
+  {
+    title: "ISO 9001:2015 Certification",
+    type: "Quality Management",
+    status: "Valid",
+    icon: "document",
+    regNumber: "ISO-9001-123",
+    issueDate: "June 1, 2023",
+    description: "International Organization for Standardization quality management certification"
+  }
+];
 
 export default function AboutPage() {
   return (
@@ -15,7 +73,8 @@ export default function AboutPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-[#2B3990]/80" />
+          {/* Removed the blue overlay div */}
+          <div className="absolute inset-0 bg-black/30" /> {/* Added light dark overlay for text readability */}
         </div>
 
         {/* Content */}
@@ -52,7 +111,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Our Story Section */}
+{/* Our Story Section */}
       <section className="bg-white py-16">
         <Container>
           <div className="max-w-4xl mx-auto">
@@ -240,6 +299,78 @@ export default function AboutPage() {
                   We leverage modern technology and proven methods to deliver cost-effective, future-proof solutions.
                 </p>
               </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Legal & Compliance Section */}
+      <section className="py-24 bg-gray-50">
+        <Container>
+          <div className="max-w-7xl mx-auto">
+            {/* Section Header */}
+            <div className="text-center mb-16" data-aos="fade-up">
+              <h2 className="text-3xl md:text-4xl font-bold text-[#2B3990] mb-4">
+                Legal Documents & Compliance
+              </h2>
+              <p className="text-gray-600 max-w-3xl mx-auto">
+                Fully licensed, certified, and compliant with all regulatory requirements and international standards
+              </p>
+            </div>
+
+            {/* Certifications Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+              {certifications.map((cert, index) => (
+                <div
+                  key={cert.title}
+                  className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-[#2B3990]/10 rounded-xl flex items-center justify-center">
+                        {cert.icon === "document" && (
+                          <svg className="w-6 h-6 text-[#2B3990]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          </svg>
+                        )}
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-gray-900">{cert.title}</h3>
+                        <p className="text-sm text-gray-500">{cert.type}</p>
+                      </div>
+                    </div>
+                    <span className={`px-3 py-1 text-xs font-medium rounded-full ${
+                      cert.status === 'Valid' || cert.status === 'Active' 
+                        ? 'text-green-700 bg-green-100' 
+                        : 'text-blue-700 bg-blue-100'
+                    }`}>
+                      {cert.status}
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-4">{cert.description}</p>
+                  <div className="text-sm text-gray-500 space-y-1">
+                    <p>Registration #: {cert.regNumber}</p>
+                    <p>Issue Date: {cert.issueDate}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* View All Documents Button */}
+            <div className="text-center" data-aos="fade-up">
+              <Link
+                href="/LEGAL DOCS.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center px-8 py-4 bg-[#2B3990] text-white rounded-xl font-medium hover:bg-[#232D73] transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg group"
+              >
+                View All Legal Documents
+                <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
             </div>
           </div>
         </Container>

@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import Container from "@/components/Container";
+import Image from "next/image";
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -36,10 +38,19 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] bg-[#2B3990] flex items-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#2B3990] to-[#1E2B6F]" />
+      <section className="relative min-h-[60vh] flex items-center">
+        <div className="absolute inset-0">
+          <Image
+            src="/contact.webp"
+            alt="Contact Us"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/30" /> {/* Light dark overlay for text readability */}
+        </div>
         <Container className="relative z-10 text-center text-white py-20">
-          <div className="inline-block bg-white/10 backdrop-blur-sm px-4 py-1 rounded-full mb-6" data-aos="fade-down">
+          <div className="inline-block bg-black/20 backdrop-blur-sm px-4 py-1 rounded-full mb-6" data-aos="fade-down">
             Contact Us
           </div>
           <h1 className="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up" data-aos-delay="100">
@@ -141,6 +152,91 @@ export default function ContactPage() {
                 <p>Sat: 9:00 AM - 4:00 PM</p>
                 <p className="text-sm text-gray-500 mt-4">Emergency services available 24/7</p>
               </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Connect With Us Section */}
+      <section className="py-20 bg-white">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+            <div className="inline-flex items-center space-x-2">
+              <svg className="w-6 h-6 text-[#0066FF]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z" />
+              </svg>
+              <h2 className="text-3xl md:text-4xl font-bold text-[#2B3990]">Connect With Us</h2>
+            </div>
+            <p className="text-gray-600 mt-6 mb-2">
+              Stay updated with our latest projects, industry insights, and technical solutions.
+            </p>
+            <p className="text-gray-600">
+              Join our growing community of engineering professionals and enthusiasts.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Facebook */}
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="0">
+              <div className="w-16 h-16 bg-[#0066FF] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <FaFacebook className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900">Facebook</h3>
+              <p className="text-gray-600 mt-2 mb-4">2.5K followers</p>
+              <a href="#" className="inline-flex items-center justify-center px-6 py-2 border-2 border-[#0066FF] text-[#0066FF] rounded-full font-medium hover:bg-[#0066FF] hover:text-white transition-colors">
+                Follow Us
+              </a>
+            </div>
+
+            {/* Twitter */}
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="100">
+              <div className="w-16 h-16 bg-[#1DA1F2] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <FaTwitter className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900">Twitter</h3>
+              <p className="text-gray-600 mt-2 mb-4">1.8K followers</p>
+              <a href="#" className="inline-flex items-center justify-center px-6 py-2 border-2 border-[#1DA1F2] text-[#1DA1F2] rounded-full font-medium hover:bg-[#1DA1F2] hover:text-white transition-colors">
+                Follow Us
+              </a>
+            </div>
+
+            {/* LinkedIn */}
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+              <div className="w-16 h-16 bg-[#0077B5] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <FaLinkedin className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900">LinkedIn</h3>
+              <p className="text-gray-600 mt-2 mb-4">3.2K followers</p>
+              <a href="#" className="inline-flex items-center justify-center px-6 py-2 border-2 border-[#0077B5] text-[#0077B5] rounded-full font-medium hover:bg-[#0077B5] hover:text-white transition-colors">
+                Follow Us
+              </a>
+            </div>
+
+            {/* Instagram */}
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="300">
+              <div className="w-16 h-16 bg-gradient-to-tr from-[#FF5733] to-[#FF2D55] rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <FaInstagram className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900">Instagram</h3>
+              <p className="text-gray-600 mt-2 mb-4">1.2K followers</p>
+              <a href="#" className="inline-flex items-center justify-center px-6 py-2 border-2 border-[#FF5733] text-[#FF5733] rounded-full font-medium hover:bg-gradient-to-tr hover:from-[#FF5733] hover:to-[#FF2D55] hover:text-white transition-colors">
+                Follow Us
+              </a>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center" data-aos="fade-up" data-aos-delay="400">
+              <div className="text-[#0066FF] text-3xl font-bold mb-2">500+</div>
+              <div className="text-gray-600">Monthly Interactions</div>
+            </div>
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center" data-aos="fade-up" data-aos-delay="500">
+              <div className="text-[#FF5733] text-3xl font-bold mb-2">8.7K</div>
+              <div className="text-gray-600">Total Followers</div>
+            </div>
+            <div className="bg-white rounded-xl shadow-lg p-6 text-center" data-aos="fade-up" data-aos-delay="600">
+              <div className="text-[#00C853] text-3xl font-bold mb-2">95%</div>
+              <div className="text-gray-600">Engagement Rate</div>
             </div>
           </div>
         </Container>

@@ -3,16 +3,45 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Bars3Icon, XMarkIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
+import 'aos/dist/aos.css';
 
 const services = [
-  { name: 'Infrared Thermography', href: '/services/infrared-thermography', icon: '/infaredthermography.webp' },
-  { name: 'Power Quality Analysis', href: '/services/power-quality-analysis', icon: '/powerqualityanalysis.webp' },
-  { name: 'Vibration Analysis', href: '/services/advanced-vibration-analysis', icon: '/vibrationalanalysis.webp' },
-  { name: 'Battery Impedance Testing', href: '/services/battery-impedance-testing', icon: '/Battery Impedance Inspection.webp' },
-  { name: 'Industrial Acoustic Imaging', href: '/services/acoustic-imaging-leak-testing', icon: '/Industrial Acoustic Imaging.webp' },
-  { name: 'Non-Contact Voltage', href: '/services/non-contact-electrical-measurement', icon: '/on-Voltage and Current Measurement.webp' },
-  { name: 'Earth Resistance Testing', href: '/services/earth-resistance-measurement', icon: '/Earth Resistance Measurement.webp' },
-  { name: 'Oil Condition Monitoring', href: '/services/oil-condition-monitoring', icon: '/Oil Condition Monitoring.webp' },
+  { 
+    name: 'Infrared Thermography', 
+    href: '/services/infrared-thermography', 
+    icon: '/infaredthermography.webp',
+    description: 'Detect thermal anomalies and potential issues before they become problems.'
+  },
+  { 
+    name: 'Power Quality Analysis', 
+    href: '/services/power-quality-analysis', 
+    icon: '/powerqualityanalysis.webp',
+    description: 'Comprehensive analysis of electrical power systems for optimal performance.'
+  },
+  { 
+    name: 'Vibration Analysis', 
+    href: '/services/vibration-analysis', 
+    icon: '/vibrationalanalysis.webp',
+    description: 'Identify and diagnose mechanical issues through vibration monitoring.'
+  },
+  { 
+    name: 'Battery & Electrical Testing', 
+    href: '/services/battery-testing', 
+    icon: '/Battery Impedance Inspection.webp',
+    description: 'Comprehensive battery health and electrical system analysis.'
+  },
+  { 
+    name: 'Acoustic Imaging & Leak Detection', 
+    href: '/services/acoustic-imaging', 
+    icon: '/Industrial Acoustic Imaging.webp',
+    description: 'Advanced ultrasound technology for leak detection and system analysis.'
+  },
+  { 
+    name: 'Oil Condition Monitoring', 
+    href: '/services/oil-monitoring', 
+    icon: '/Oil Condition Monitoring.webp',
+    description: 'Monitor and analyze oil conditions for optimal equipment performance.'
+  }
 ];
 
 export default function Navbar() {
@@ -64,88 +93,83 @@ export default function Navbar() {
                 Services 
                 <ChevronDownIcon className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
               </Link>
+              {/* Full-width dropdown menu */}
               <div
-                className="absolute left-0 w-80 mt-2 pt-2 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200"
+                className="absolute left-1/2 transform -translate-x-1/2 w-screen mt-2 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200"
+                style={{ maxWidth: 'calc(100vw - 2rem)' }}
               >
-                <div className="py-2 bg-white rounded-xl shadow-xl ring-1 ring-black ring-opacity-5">
-                  <div className="px-4 py-3 border-b border-gray-100">
-                    <p className="text-sm text-gray-500">Our Services</p>
-                    <Link 
-                      href="/services" 
-                      className="mt-1 block text-sm font-medium text-[#2B3990] hover:text-[#FF5733]"
-                    >
-                      View all services →
-                    </Link>
-                  </div>
-                  <div className="py-2 max-h-[calc(100vh-200px)] overflow-y-auto">
-                    {services.map((service) => (
-                      <Link
-                        key={service.href}
-                        href={service.href}
-                        className="flex items-center px-4 py-3 hover:bg-gray-50 transition-colors group/item"
-                      >
-                        <div className="relative w-12 h-12 rounded-lg overflow-hidden bg-gray-100 flex-shrink-0">
-                          <Image
-                            src={service.icon}
-                            alt={service.name}
-                            fill
-                            className="object-cover transition-transform duration-200 group-hover/item:scale-110"
-                          />
+                <div className="mx-auto max-w-7xl">
+                  <div className="bg-white rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 overflow-hidden">
+                    <div className="px-8 py-6 border-b border-gray-100">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <h3 className="text-lg font-semibold text-gray-900">Our Services</h3>
+                          <p className="text-sm text-gray-500 mt-1">Comprehensive engineering diagnostics and monitoring solutions</p>
                         </div>
-                        <div className="ml-4 flex-1">
-                          <p className="text-sm font-medium text-gray-900 group-hover/item:text-[#FF5733] transition-colors">
-                            {service.name}
-                          </p>
-                          <p className="mt-1 text-xs text-gray-500 line-clamp-1">
-                            {service.description || 'Learn more about this service'}
-                          </p>
-                        </div>
-                        <svg 
-                          className="w-5 h-5 text-gray-400 group-hover/item:text-[#FF5733] group-hover/item:translate-x-1 transition-all"
-                          fill="none" 
-                          viewBox="0 0 24 24" 
-                          stroke="currentColor"
+                        <Link 
+                          href="/services" 
+                          className="text-sm text-[#FF5733] hover:text-[#FF5733]/80 font-medium flex items-center"
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </Link>
-                    ))}
+                          View All Services
+                          <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </Link>
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-3 gap-6 px-8 py-6">
+                      {services.map((service) => (
+                        <Link
+                          key={service.name}
+                          href={service.href}
+                          className="group block"
+                        >
+                          <div className="relative aspect-video rounded-lg overflow-hidden mb-4">
+                            <Image
+                              src={service.icon}
+                              alt={service.name}
+                              fill
+                              className="object-cover transition-transform duration-300 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          </div>
+                          <div>
+                            <h4 className="text-base font-semibold text-gray-900 group-hover:text-[#FF5733] transition-colors">
+                              {service.name}
+                            </h4>
+                            <p className="mt-1 text-sm text-gray-500">
+                              {service.description}
+                            </p>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+            <Link href="/team" className={`${isScrolled ? 'text-gray-800' : 'text-[#2B3990]'} hover:text-[#FF5733] px-3 py-2 text-sm font-medium transition-colors`}>
+              Team
+            </Link>
             <Link href="/projects" className={`${isScrolled ? 'text-gray-800' : 'text-[#2B3990]'} hover:text-[#FF5733] px-3 py-2 text-sm font-medium transition-colors`}>
               Projects
             </Link>
-            <Link href="/team" className={`${isScrolled ? 'text-gray-800' : 'text-[#2B3990]'} hover:text-[#FF5733] px-3 py-2 text-sm font-medium transition-colors`}>
-              Our Team
+            <Link href="/contact" className="inline-flex items-center px-4 py-2 bg-[#FF5733] text-white rounded-lg text-sm font-medium hover:bg-[#FF5733]/90 transition-colors">
+              Contact Us
             </Link>
-            <Link href="/contact" className={`${isScrolled ? 'text-gray-800' : 'text-[#2B3990]'} hover:text-[#FF5733] px-3 py-2 text-sm font-medium transition-colors`}>
-              Contact
-            </Link>
-            <a
-              href="tel:+255123456789"
-              className="bg-[#FF5733] hover:bg-[#FF5733]/90 text-white px-6 py-2.5 rounded-lg text-sm font-medium transition-colors flex items-center"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              Call Us
-            </a>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`inline-flex items-center justify-center p-2 rounded-lg ${
-                isScrolled ? 'text-gray-800' : 'text-[#2B3990]'
-              }`}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-[#FF5733] hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#FF5733]"
             >
+              <span className="sr-only">Open main menu</span>
               {isMenuOpen ? (
-                <XMarkIcon className="block h-6 w-6" />
+                <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
               ) : (
-                <Bars3Icon className="block h-6 w-6" />
+                <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
               )}
             </button>
           </div>
@@ -153,60 +177,69 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-xl rounded-b-2xl">
-          <div className="px-4 pt-2 pb-3 space-y-1">
-            <Link href="/" className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#FF5733] rounded-lg">
-              Home
-            </Link>
-            <Link href="/about" className="block px-3 py-2 text-base font-medium text-text hover:text-primary">
-              About
-            </Link>
-            <div>
-              <Link
-                href="/services"
-                className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-[#FF5733] rounded-lg"
-              >
-                Services
-              </Link>
-              <div className="mt-2 pl-6 space-y-1 border-l-2 border-gray-100">
-                {services.map((service) => (
-                  <Link
-                    key={service.href}
-                    href={service.href}
-                    className="flex items-center px-3 py-2 text-sm text-gray-600 hover:text-[#FF5733] rounded-lg group"
-                  >
-                    <div className="relative w-8 h-8 rounded overflow-hidden mr-3 flex-shrink-0">
-                      <Image
-                        src={service.icon}
-                        alt={service.name}
-                        fill
-                        className="object-cover transition-transform duration-200 group-hover:scale-110"
-                      />
-                    </div>
-                    {service.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-            <Link href="/projects" className="block px-3 py-2 text-base font-medium text-text hover:text-primary">
-              Projects
-            </Link>
-            <Link href="/team" className="block px-3 py-2 text-base font-medium text-text hover:text-primary">
-              Our Team
-            </Link>
-            <Link href="/contact" className="block px-3 py-2 text-base font-medium text-text hover:text-primary">
-              Contact
-            </Link>
-            <a
-              href="mailto:info@tesolutions.com"
-              className="block px-3 py-2 text-base font-medium bg-accent text-white rounded-md text-center"
+      <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden`}>
+        <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow-lg">
+          <Link
+            href="/"
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Home
+          </Link>
+          <Link
+            href="/about"
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            About
+          </Link>
+          <div>
+            <button
+              onClick={() => setIsServicesOpen(!isServicesOpen)}
+              className="flex items-center justify-between w-full px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
             >
-              Email Us
-            </a>
+              Services
+              <ChevronDownIcon className={`h-5 w-5 transform transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+            </button>
+            <div className={`${isServicesOpen ? 'block' : 'hidden'} space-y-1 pl-4`}>
+              {services.map((service) => (
+                <Link
+                  key={service.name}
+                  href={service.href}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+                  onClick={() => {
+                    setIsServicesOpen(false);
+                    setIsMenuOpen(false);
+                  }}
+                >
+                  {service.name}
+                </Link>
+              ))}
+            </div>
           </div>
+          <Link
+            href="/team"
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Team
+          </Link>
+          <Link
+            href="/projects"
+            className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Projects
+          </Link>
+          <Link
+            href="/contact"
+            className="block px-3 py-2 rounded-md text-base font-medium text-white bg-[#FF5733] hover:bg-[#FF5733]/90"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Contact Us
+          </Link>
         </div>
-      )}
+      </div>
     </nav>
   );
 }
